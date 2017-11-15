@@ -1,11 +1,13 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
+const beerSchema = require('./bars')
 
-const barSchema = new mongoose.Schema({
+const barSchema = new Schema({
     name: String,
-    beers: [mongoose.Schema.Types.ObjectId, ref: 'Beers']
+    location: String,
+    beers: [ beerSchema ]
 });
 
 
 
-mondule.exports = barSchema
+module.exports = mongoose.model('bars', barSchema);

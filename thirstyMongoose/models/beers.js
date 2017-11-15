@@ -1,13 +1,18 @@
-vconst mongoose = require('mongoose')
+const mongoose = require('mongoose')
 const Schema = mongoose.Schema
-const Bar = require('./bars')
+const barSchema = require('./bars')
 
-var beeerSchema = new mongoose.Schema({
+const beerSchema = new Schema({
     name: String,
-    bars: [mongoose.Schema.Types.ObjectsID, ref: 'Bars']
+    style: String,
+    bars: [{type: Schema.Types.ObjectId, ref: 'Bar'} ],
+    comments: String
+},
+{
+    timestamps: true
 });
 
 
 
 
-module.exports = mongoose.model('Beers', beerSchema)
+module.exports = mongoose.model('Beer', beerSchema);

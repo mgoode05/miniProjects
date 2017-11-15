@@ -3,7 +3,7 @@ var router = express.Router();
 var bars = require('./../controllers/beersController')
 
 /* GET users listing. */
-router.post('/bars/:id/posts', posts.create)
+router.post('/bars/:id/posts', beers.create)
 router.delete('/bars/:id/beers/:beer_id', beers.destroy)
 
 
